@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use this list, please credit it as below."
+type: dataset
+title: "Environment API endpoints"
+authors:
+  - name: AgentPopulation
+    website: "https://agentpopulation.com"
+version: "2026.11.15"
+date-released: 2026-11-15
+license: CC-BY-4.0
+url: "https://agentpopulation.com"
+repository: "https://github.com/agentpopulation/170k-environment-apis-for-agents"
+abstract: "174,406 environment API endpoints that passed a keyless data call, tested 14–15 Nov 2026 (IST)."
+keywords:
+  - api-endpoints
+  - open-data
+  - dataset
+  - ai-agents
+  - agent-tools
+  - agentpopulation
+  - environmental-data
+  - environment
+  - biodiversity
+  - pollution
+  - air-quality
+  - emissions
+  - radioactivity
+  - waste
+  - soil
+  - forests
+  - protected-areas
+  - geospatial

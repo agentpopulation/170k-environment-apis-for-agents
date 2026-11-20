@@ -1,0 +1,1057 @@
+{
+  "pack": "environment-api-endpoints",
+  "title": "Environment API endpoints",
+  "snapshot": "2026-11-15",
+  "tested": {
+    "min": "2026-11-14",
+    "max": "2026-11-15",
+    "text": "14–15 Nov 2026"
+  },
+  "note": "On the date in last_tested (IST), one GET to the URL, sent with no key, returned HTTP 2xx and a non-empty data body. HTML pages and empty results did not pass. The format column records what came back. This is a test result for that date, not a promise that the URL answers today. Licences, terms, rate limits, accuracy and freshness were not reviewed. Endpoints are URLs, not separate APIs; many share one service.",
+  "licence": "CC BY 4.0: credit AgentPopulation and link https://agentpopulation.com",
+  "focus": "title matches /environment|umwelt|environnement|ambiental|ambientale|milieu|περιβαλλ|pollut|emission|greenhouse|\\bghg\\b|\\bco2\\b|co₂|carbon|klima|climat|air quality|\\bair\\b|luftqualit|particulate|pm ?2[._ ]?5|pm ?10\\b|ozon|nitrogen dioxide|\\bno2\\b|noise|lärm|laerm|bruit|rumore|radioactiv|radioaktiv|gamma-odl|dose rate|radon|biodivers|species|habitat|biotop|wildlife|fauna|flora|occurrence|gbif|\\bbirds?\\b|\\bbats?\\b|amphibian|reptile|insect|pollinat|invasive|mammal|\\bforests?\\b|forestry|waldgebiet|forêt|woodland|\\btrees?\\b|tree canopy|canopy|baum|bäume|arbres?|protected area|protected landscape|nature reserve|nature conservation|naturschutz|natura 2000|ramsar|znieff|conservation|national park|nationalpark|wetland|mangrove|peatland|\\bmoor|grassland|\\bheath(land)?\\b|vegetation|land cover|green space|green area|soil|boden|erosion|contaminat|altlast|brownfield|waste|abfall|déchet|rifiut|residuos|recycl|landfill|compost|\\blitter|water quality|bathing water|wastewater|sewage|ecolog|ökolog|ecosystem|landscape|conserved|wdpca|\\bnature\\b|natural area|macroinvertebrat|hornet|frelon|airshed|geluid/i AND NOT title matches /\\bb-?plan\\b|bebauungsplan|xplanung|development plan|land use plan|flächennutzungsplan|amendment|(^|[\\s(-])änderung|bodenrichtwert|soil benchmark|land value|monument|architectural|historic|heritage|denkmal/i AND NOT title matches /employ|unemploy|beneficiar|contribution rate|workers|pension|passive policies|self-employed/i",
+  "buckets": [
+    {
+      "id": "agent",
+      "name": "Agent tools",
+      "title": "Species records, waste and pollution data an agent can call",
+      "filter": "tags has agent-ready AND NOT tags has air-quality AND title matches /biodivers|species|habitat|biotop|wildlife|fauna|flora|gbif|\\bbirds?\\b|\\bbats?\\b|amphibian|reptile|insect|pollinat|invasive|neophyt|\\btrees?\\b|tree canopy|\\bforests?\\b|forestry|woodland|protected area|conserved area|wdpca|nature reserve|naturschutz|natura 2000|ramsar|znieff|national park|wetland|mangrove|grassland|vegetation|land cover|green space|radioactiv|radioaktiv|gamma-odl|dose rate|radon|pollut|emission|greenhouse|\\bghg\\b|\\bco2\\b|noise|lärm|bruit|waste|abfall|déchet|rifiut|recycl|landfill|contaminat|altlast|heavy metal|soil|boden|erosion/i AND NOT subcategory matches /PxWeb|PxWin|StatCan|JSON-stat|StatLine/i AND NOT title matches /employ|unemploy|beneficiar|contribution rate|workers|pension|passive policies|self-employed|monument|architectural|historic|heritage|denkmal|bodenrichtwert|soil benchmark|land value/i AND NOT host in (erddap.sensors.ioos.us, api.scb.se, pxweb.stat.si, data.ssb.no, andmed.stat.ee, openstat.psa.gov.ph) AND NOT url matches /request=getcapabilities|/erddap/info//i",
+      "endpoints": 34035,
+      "notes": [
+        "3557 of these are GBIF occurrence searches for one country and one group or filter (such as animals, plants, birds, endangered species or museum specimens), 20 records per call."
+      ],
+      "criteria": "Services in this pack with the most endpoints that match this bucket and are tagged agent-ready (no key sent in the test call, JSON body, passed a data call). Ties go to the service with more country codes, then by name. Only services with at least one bucket row that matches the focus rule are listed, and the sample comes from those rows; the counts cover the whole bucket. The sample URL is the first row by URL sort after preferring, in this order: rows that match the bucket's sample preference when it has one, rows that return values rather than describe a dataset or a service (not ERDDAP /info/ pages, OGC GetCapabilities requests, bare OWS addresses, PxWeb tables, UN SDG series lists, Statistics Canada download pointers, WorldPop listings, GTFS validation reports, untitled rows or service root addresses), and agent-ready rows. Sample preference in this bucket: url contains \"api.gbif.org/v1/occurrence/search\". Services named \"ArcGIS organization\" hold map layers from many owners and are added only when fewer than 5 other services match.",
+      "services": [
+        {
+          "service": "GBIF (Global Biodiversity Information Facility)",
+          "display": "GBIF (Global Biodiversity Information Facility)",
+          "host": "api.gbif.org",
+          "endpoints_in_bucket": 3557,
+          "endpoints_in_pack": 3557,
+          "country_codes": [
+            "AD",
+            "AF",
+            "AG",
+            "AI",
+            "AO",
+            "AQ",
+            "AS",
+            "AW",
+            "AX",
+            "AZ",
+            "BA",
+            "BB",
+            "BD",
+            "BF",
+            "BG",
+            "BI",
+            "BJ",
+            "BL",
+            "BM",
+            "BN",
+            "BO",
+            "BQ",
+            "BS",
+            "BT",
+            "BV",
+            "BW",
+            "BY",
+            "BZ",
+            "CC",
+            "CD",
+            "CF",
+            "CG",
+            "CI",
+            "CK",
+            "CM",
+            "CR",
+            "CU",
+            "CV",
+            "CW",
+            "CX",
+            "CY",
+            "DJ",
+            "DM",
+            "DZ",
+            "EE",
+            "EG",
+            "EH",
+            "ER",
+            "ET",
+            "FJ",
+            "FK",
+            "FM",
+            "FO",
+            "GA",
+            "GD",
+            "GE",
+            "GF",
+            "GG",
+            "GH",
+            "GI",
+            "GL",
+            "GM",
+            "GN",
+            "GP",
+            "GQ",
+            "GS",
+            "GT",
+            "GU",
+            "GW",
+            "GY",
+            "HM",
+            "HN",
+            "HT",
+            "IM",
+            "IQ",
+            "IR",
+            "JE",
+            "JM",
+            "JO",
+            "KE",
+            "KH",
+            "KI",
+            "KM",
+            "KN",
+            "KP",
+            "KW",
+            "KY",
+            "KZ",
+            "LA",
+            "LB",
+            "LC",
+            "LI",
+            "LK",
+            "LR",
+            "LS",
+            "LT",
+            "LU",
+            "LY",
+            "MA",
+            "MC",
+            "MD",
+            "ME",
+            "MF",
+            "MG",
+            "MH",
+            "MK",
+            "ML",
+            "MM",
+            "MN",
+            "MO",
+            "MP",
+            "MQ",
+            "MR",
+            "MS",
+            "MT",
+            "MU",
+            "MV",
+            "MW",
+            "MY",
+            "MZ",
+            "NA",
+            "NE",
+            "NF",
+            "NG",
+            "NI",
+            "NP",
+            "NR",
+            "NU",
+            "OM",
+            "PE",
+            "PF",
+            "PG",
+            "PH",
+            "PM",
+            "PN",
+            "PR",
+            "PS",
+            "PW",
+            "PY",
+            "QA",
+            "RE",
+            "RS",
+            "RU",
+            "RW",
+            "SA",
+            "SB",
+            "SC",
+            "SD",
+            "SG",
+            "SH",
+            "SI",
+            "SJ",
+            "SL",
+            "SM",
+            "SO",
+            "SR",
+            "SS",
+            "ST",
+            "SV",
+            "SX",
+            "SY",
+            "SZ",
+            "TC",
+            "TD",
+            "TF",
+            "TJ",
+            "TK",
+            "TL",
+            "TM",
+            "TN",
+            "TO",
+            "TT",
+            "TV",
+            "TZ",
+            "UG",
+            "UM",
+            "UZ",
+            "VA",
+            "VC",
+            "VE",
+            "VG",
+            "VI",
+            "VU",
+            "WF",
+            "WS",
+            "YE",
+            "YT",
+            "ZA",
+            "ZM",
+            "ZW"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://api.gbif.org/v1/occurrence/search?country=AD&basisOfRecord=PRESERVED_SPECIMEN&limit=20",
+          "sample_title": "GBIF biodiversity records - museum specimens: Andorra",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "Observation",
+          "display": "Observation",
+          "host": "observation.org",
+          "endpoints_in_bucket": 1000,
+          "endpoints_in_pack": 1000,
+          "country_codes": [
+            "NL"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://observation.org/api/v1/species/100944/",
+          "sample_title": "Observation.org (Stichting Observation International): Observation.org species record (JSON)",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Tela Botanica",
+          "display": "Tela Botanica",
+          "host": "api.tela-botanica.org",
+          "endpoints_in_bucket": 1000,
+          "endpoints_in_pack": 1000,
+          "country_codes": [
+            "FR"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://api.tela-botanica.org/service:eflore:0.1/bdtfx/taxons/1014",
+          "sample_title": "Tela Botanica eFlore (BDTFX French flora): eFlore taxon record (JSON)",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "api.plutof.ut.ee",
+          "display": "api.plutof.ut.ee",
+          "host": "api.plutof.ut.ee",
+          "endpoints_in_bucket": 1000,
+          "endpoints_in_pack": 1000,
+          "country_codes": [
+            "EE"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://api.plutof.ut.ee/v1/public/taxa/?search_query=Abatus",
+          "sample_title": "PlutoF (University of Tartu biodiversity platform): PlutoF public taxon search (JSON:API)",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "OBIS (Ocean Biodiversity Information System)",
+          "display": "OBIS (Ocean Biodiversity Information System)",
+          "host": "api.obis.org",
+          "endpoints_in_bucket": 1000,
+          "endpoints_in_pack": 1000,
+          "country_codes": [],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://api.obis.org/v3/dataset/002eea41-acbf-4d60-ad84-6f4e3c46d9be",
+          "sample_title": "OBIS (Ocean Biodiversity Information System, UNESCO IOC): OBIS dataset metadata JSON",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Biodiversitydata",
+          "display": "Biodiversitydata",
+          "host": "api.biodiversitydata.nl",
+          "endpoints_in_bucket": 999,
+          "endpoints_in_pack": 999,
+          "country_codes": [
+            "NL"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://api.biodiversitydata.nl/v2/geo/query?_size=10",
+          "sample_title": "Naturalis Biodiversity Center (Netherlands Biodiversity API): Naturalis API metadata/listing (JSON)",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Usanpn",
+          "display": "Usanpn",
+          "host": "services.usanpn.org",
+          "endpoints_in_bucket": 994,
+          "endpoints_in_pack": 998,
+          "country_codes": [
+            "US"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://services.usanpn.org/npn_portal/phenophases/getPhenophasesForSpecies.json?species_id=1",
+          "sample_title": "USA National Phenology Network: USA-NPN phenophases for species (JSON)",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Globalforestwatch",
+          "display": "Globalforestwatch",
+          "host": "data-api.globalforestwatch.org",
+          "endpoints_in_bucket": 987,
+          "endpoints_in_pack": 987,
+          "country_codes": [
+            "US"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://data-api.globalforestwatch.org/dataset/aqueduct_crop_baseline_2020",
+          "sample_title": "Global Forest Watch Data API (World Resources Institute): GFW dataset metadata (JSON)",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        }
+      ]
+    },
+    {
+      "id": "app",
+      "name": "App features",
+      "title": "Nature, soil, noise and waste map layers",
+      "filter": "(format is geojson OR subcategory contains \"ArcGIS feature layer\" OR url matches /request=getfeature/i) AND title matches /biodivers|species|habitat|biotop|wildlife|fauna|flora|gbif|\\bbirds?\\b|\\bbats?\\b|amphibian|reptile|insect|pollinat|invasive|neophyt|\\btrees?\\b|tree canopy|\\bforests?\\b|forestry|woodland|protected area|conserved area|wdpca|nature reserve|naturschutz|natura 2000|ramsar|znieff|national park|wetland|mangrove|grassland|vegetation|land cover|green space|radioactiv|radioaktiv|gamma-odl|dose rate|radon|pollut|emission|greenhouse|\\bghg\\b|\\bco2\\b|noise|lärm|bruit|waste|abfall|déchet|rifiut|recycl|landfill|contaminat|altlast|heavy metal|soil|boden|erosion/i AND NOT tags has air-quality AND NOT title matches /\\bb-?plan\\b|bebauungsplan|xplanung|development plan|land use plan|flächennutzungsplan|amendment|(^|[\\s(-])änderung|monument|architectural|historic|heritage|denkmal|bodenrichtwert|soil benchmark|land value/i AND NOT host is www.imis.bfs.de",
+      "endpoints": 5880,
+      "notes": [],
+      "criteria": "Services in this pack with the most endpoints that match this bucket and passed a data call. Ties go to the service with more country codes, then by name. Only services with at least one bucket row that matches the focus rule are listed, and the sample comes from those rows; the counts cover the whole bucket. The sample URL is the first row by URL sort after preferring, in this order: rows that match the bucket's sample preference when it has one, rows that return values rather than describe a dataset or a service (not ERDDAP /info/ pages, OGC GetCapabilities requests, bare OWS addresses, PxWeb tables, UN SDG series lists, Statistics Canada download pointers, WorldPop listings, GTFS validation reports, untitled rows or service root addresses), and agent-ready rows. Sample preference in this bucket: NOT url matches /request=getcapabilities/i. Services named \"ArcGIS organization\" hold map layers from many owners and are added only when fewer than 5 other services match.",
+      "services": [
+        {
+          "service": "ArcGIS Online: HDX",
+          "display": "ArcGIS Online: HDX",
+          "host": "hub.arcgis.com",
+          "endpoints_in_bucket": 185,
+          "endpoints_in_pack": 590,
+          "country_codes": [],
+          "formats": [
+            "geojson"
+          ],
+          "formats_in_pack": 3,
+          "sample_url": "https://hub.arcgis.com/api/download/v1/items/8664a0d82205448e942c1189775846be/geojson?layers=0&where=ISO3+%3D+%27ALB%27&redirect=true&spatialRefId=4326",
+          "sample_title": "Protected and Conserved Areas (WDPCA) in Albania - protected_conserved_areas_WDPCA_points.geojson",
+          "sample_format": "geojson",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Santee Cooper GIS Laboratory - College of Charleston (ArcGIS Online)",
+          "display": "Santee Cooper GIS Laboratory - College of Charleston (ArcGIS Online)",
+          "host": "services1.arcgis.com",
+          "endpoints_in_bucket": 64,
+          "endpoints_in_pack": 131,
+          "country_codes": [
+            "US"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://services1.arcgis.com/5Gtv38l8677OspKm/arcgis/rest/services/Florida_Conifer_Habitat/FeatureServer/0/query?where=1%3D1&outFields=*&returnGeometry=false&resultRecordCount=5&f=json",
+          "sample_title": "Florida Conifer Habitat",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "Sazp",
+          "display": "Sazp",
+          "host": "geos.sazp.sk",
+          "endpoints_in_bucket": 62,
+          "endpoints_in_pack": 474,
+          "country_codes": [
+            "SK"
+          ],
+          "formats": [
+            "xml"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://geos.sazp.sk/geoserver/atlas_krajiny_sr/C04081_01/wfs?SERVICE=WFS&REQUEST=GetFeature&VERSION=2.0.0&TYPENAMES=atlas_krajiny_sr%3AC04081_01&COUNT=1",
+          "sample_title": "Moisture regime of soils [Atlas of the country of the Slovak Republic]",
+          "sample_format": "xml",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "Clemson University (ArcGIS Online)",
+          "display": "Clemson University (ArcGIS Online)",
+          "host": "services1.arcgis.com",
+          "endpoints_in_bucket": 60,
+          "endpoints_in_pack": 127,
+          "country_codes": [
+            "US"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://services1.arcgis.com/x5wCko8UnSi4h0CB/arcgis/rest/services/CO2EmissionbyZD/FeatureServer/0/query?where=1%3D1&outFields=*&returnGeometry=false&resultRecordCount=5&f=json",
+          "sample_title": "CO2EmissionbyZD",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "DOV Flanders subsoil / water",
+          "display": "DOV Flanders subsoil / water",
+          "host": "www.dov.vlaanderen.be",
+          "endpoints_in_bucket": 60,
+          "endpoints_in_pack": 220,
+          "country_codes": [
+            "BE"
+          ],
+          "formats": [
+            "xml"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://www.dov.vlaanderen.be/geoserver-inspire/observedsoilprofile/wfs?SERVICE=WFS&version=2.0.0&request=GetFeature&count=1&typeName=ObservedSoilProfile",
+          "sample_title": "INSPIRE harmonized - Soil locations",
+          "sample_format": "xml",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "Atmo Normandie (ArcGIS Online)",
+          "display": "Atmo Normandie (ArcGIS Online)",
+          "host": "services7.arcgis.com",
+          "endpoints_in_bucket": 48,
+          "endpoints_in_pack": 57,
+          "country_codes": [
+            "FR"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://services7.arcgis.com/FPRT1cIkPKcq73uN/arcgis/rest/services/Emissions_de_COVNM_du_secteur_agriculture_en_kg_en_2023/FeatureServer/0/query?where=1%3D1&outFields=*&returnGeometry=false&resultRecordCount=5&f=json",
+          "sample_title": "Emissions_de_COVNM_du_secteur_agriculture_en_kg_en_2023",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "Esri UK (ArcGIS Online)",
+          "display": "Esri UK (ArcGIS Online)",
+          "host": "services.arcgis.com",
+          "endpoints_in_bucket": 43,
+          "endpoints_in_pack": 45,
+          "country_codes": [
+            "GB"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://services.arcgis.com/qHLhLQrcvEnxjtPr/arcgis/rest/services/Barking_and_Dagenham_Env_Emissions/FeatureServer/0/query?where=1%3D1&outFields=*&returnGeometry=false&resultRecordCount=5&f=json",
+          "sample_title": "Barking_and_Dagenham_Env_Emissions",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "University of Illinois (ArcGIS Online)",
+          "display": "University of Illinois (ArcGIS Online)",
+          "host": "services.arcgis.com",
+          "endpoints_in_bucket": 42,
+          "endpoints_in_pack": 106,
+          "country_codes": [
+            "CN",
+            "US"
+          ],
+          "formats": [
+            "json"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://services.arcgis.com/GL0fWlNkwysZaKeV/arcgis/rest/services/Bradbury_2018_CO2_Emissions/FeatureServer/0/query?where=1%3D1&outFields=*&returnGeometry=false&resultRecordCount=5&f=json",
+          "sample_title": "Bradbury 2018 CO2 Emissions",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-14"
+        }
+      ]
+    },
+    {
+      "id": "grounding",
+      "name": "Grounding and data pipelines",
+      "title": "Emissions, waste, forest and radiation series for scheduled loads",
+      "filter": "(format in (csv, xml, zip, txt) OR subcategory contains \"JSON-stat\" OR subcategory contains \"OWID\") AND title matches /biodivers|species|habitat|biotop|wildlife|fauna|flora|gbif|\\bbirds?\\b|\\bbats?\\b|amphibian|reptile|insect|pollinat|invasive|neophyt|\\btrees?\\b|tree canopy|\\bforests?\\b|forestry|woodland|protected area|conserved area|wdpca|nature reserve|naturschutz|natura 2000|ramsar|znieff|national park|wetland|mangrove|grassland|vegetation|land cover|green space|radioactiv|radioaktiv|gamma-odl|dose rate|radon|pollut|emission|greenhouse|\\bghg\\b|\\bco2\\b|noise|lärm|bruit|waste|abfall|déchet|rifiut|recycl|landfill|contaminat|altlast|heavy metal|soil|boden|erosion|carbon|climat/i AND NOT title matches /employ|unemploy|beneficiar|contribution rate|workers|pension|passive policies|self-employed/i AND NOT title matches /\\bb-?plan\\b|bebauungsplan|xplanung|development plan|land use plan|flächennutzungsplan|amendment|(^|[\\s(-])änderung|bodenrichtwert|soil benchmark|land value/i AND NOT url matches /request=getcapabilities/i",
+      "endpoints": 13026,
+      "notes": [
+        "892 of these are Our World in Data chart CSVs with a country in the URL; some return that country year by year, others the latest year for each country."
+      ],
+      "criteria": "Services in this pack with the most endpoints that match this bucket and passed a data call. Ties go to the service with more country codes, then by name. Only services with at least one bucket row that matches the focus rule are listed, and the sample comes from those rows; the counts cover the whole bucket. The sample URL is the first row by URL sort after preferring, in this order: rows that match the bucket's sample preference when it has one, rows that return values rather than describe a dataset or a service (not ERDDAP /info/ pages, OGC GetCapabilities requests, bare OWS addresses, PxWeb tables, UN SDG series lists, Statistics Canada download pointers, WorldPop listings, GTFS validation reports, untitled rows or service root addresses), and agent-ready rows. Sample preference in this bucket: NOT url matches /request=getcapabilities/i AND title matches /emission|co2|waste|forest|radioactiv|gamma|soil|species/i. Services named \"ArcGIS organization\" hold map layers from many owners and are added only when fewer than 5 other services match.",
+      "services": [
+        {
+          "service": "daten.transparenz.hamburg.de",
+          "display": "daten.transparenz.hamburg.de",
+          "host": "daten.transparenz.hamburg.de",
+          "endpoints_in_bucket": 3826,
+          "endpoints_in_pack": 3826,
+          "country_codes": [
+            "DE"
+          ],
+          "formats": [
+            "csv"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://daten.transparenz.hamburg.de/Dataport.HmbTG.ZS.Webservice.GetRessource100/GetRessource100.svc/00001601-9b8d-4655-99be-83a5c58e27f6/Kakaopulver_loeslich.csv",
+          "sample_title": "Radioactivity measurements in: Cocoa powder soluble (09.12.2019)",
+          "sample_format": "csv",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "Our World in Data",
+          "display": "Our World in Data",
+          "host": "ourworldindata.org",
+          "endpoints_in_bucket": 892,
+          "endpoints_in_pack": 1044,
+          "country_codes": [
+            "AD",
+            "AF",
+            "AG",
+            "AI",
+            "AO",
+            "AQ",
+            "AS",
+            "AW",
+            "AX",
+            "AZ",
+            "BA",
+            "BB",
+            "BD",
+            "BF",
+            "BG",
+            "BI",
+            "BJ",
+            "BL",
+            "BM",
+            "BN",
+            "BO",
+            "BQ",
+            "BS",
+            "BT",
+            "BV",
+            "BW",
+            "BY",
+            "BZ",
+            "CC",
+            "CD",
+            "CF",
+            "CG",
+            "CI",
+            "CK",
+            "CM",
+            "CR",
+            "CU",
+            "CV",
+            "CW",
+            "CX",
+            "CY",
+            "DJ",
+            "DM",
+            "DZ",
+            "EE",
+            "EG",
+            "EH",
+            "ER",
+            "ET",
+            "FJ",
+            "FK",
+            "FM",
+            "FO",
+            "GA",
+            "GD",
+            "GE",
+            "GF",
+            "GG",
+            "GH",
+            "GI",
+            "GL",
+            "GM",
+            "GN",
+            "GP",
+            "GQ",
+            "GS",
+            "GT",
+            "GU",
+            "GW",
+            "GY",
+            "HM",
+            "HN",
+            "HT",
+            "IM",
+            "IQ",
+            "IR",
+            "JE",
+            "JM",
+            "JO",
+            "KE",
+            "KH",
+            "KI",
+            "KM",
+            "KN",
+            "KP",
+            "KW",
+            "KY",
+            "KZ",
+            "LA",
+            "LB",
+            "LC",
+            "LI",
+            "LK",
+            "LR",
+            "LS",
+            "LT",
+            "LU",
+            "LY",
+            "MA",
+            "MC",
+            "MD",
+            "ME",
+            "MF",
+            "MG",
+            "MH",
+            "MK",
+            "ML",
+            "MM",
+            "MN",
+            "MO",
+            "MP",
+            "MQ",
+            "MR",
+            "MS",
+            "MT",
+            "MU",
+            "MV",
+            "MW",
+            "MY",
+            "MZ",
+            "NA",
+            "NE",
+            "NF",
+            "NG",
+            "NI",
+            "NP",
+            "NR",
+            "NU",
+            "OM",
+            "PE",
+            "PF",
+            "PG",
+            "PH",
+            "PM",
+            "PN",
+            "PR",
+            "PS",
+            "PW",
+            "PY",
+            "QA",
+            "RE",
+            "RS",
+            "RU",
+            "RW",
+            "SA",
+            "SB",
+            "SC",
+            "SD",
+            "SG",
+            "SH",
+            "SI",
+            "SJ",
+            "SL",
+            "SM",
+            "SO",
+            "SR",
+            "SS",
+            "ST",
+            "SV",
+            "SX",
+            "SY",
+            "SZ",
+            "TC",
+            "TD",
+            "TF",
+            "TJ",
+            "TK",
+            "TL",
+            "TM",
+            "TN",
+            "TO",
+            "TT",
+            "TV",
+            "TZ",
+            "UG",
+            "UM",
+            "UZ",
+            "VA",
+            "VC",
+            "VE",
+            "VG",
+            "VI",
+            "VU",
+            "WF",
+            "WS",
+            "YE",
+            "YT",
+            "ZA",
+            "ZM",
+            "ZW"
+          ],
+          "formats": [
+            "csv"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://ourworldindata.org/grapher/annual-change-forest-area.csv?v=1&csvType=filtered&useColumnShortNames=true&country=~ABW",
+          "sample_title": "Our World in Data: annual change forest area - Aruba",
+          "sample_format": "csv",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "Usgs",
+          "display": "Usgs",
+          "host": "data.usgs.gov",
+          "endpoints_in_bucket": 710,
+          "endpoints_in_pack": 2702,
+          "country_codes": [
+            "US"
+          ],
+          "formats": [
+            "xml"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://data.usgs.gov/datacatalog/metadata/USGS.055e7955-ed10-46e4-ac0d-d1c2b62e4823.xml",
+          "sample_title": "Agricultural Waste Management Systems on Agricultural Land in the Conterminous United States, 1992: National Resource Inventory Conservation Practice 312 - Original Metadata",
+          "sample_format": "xml",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "www.imis.bfs.de",
+          "display": "www.imis.bfs.de",
+          "host": "www.imis.bfs.de",
+          "endpoints_in_bucket": 570,
+          "endpoints_in_pack": 781,
+          "country_codes": [
+            "DE"
+          ],
+          "formats": [
+            "xml",
+            "csv"
+          ],
+          "formats_in_pack": 3,
+          "sample_url": "https://www.imis.bfs.de/ogc/opendata/ows?service=WFS&version=1.1.0&request=GetFeature&typeName=opendata:odlinfo_timeseries_odl_1h&outputFormat=KML&viewparams=kenn:091620001",
+          "sample_title": "Measurement data Gamma-ODL: Munich-Neuhausen station",
+          "sample_format": "xml",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "Transparenzportal Hamburg",
+          "display": "Transparenzportal Hamburg",
+          "host": "archiv.transparenz.hamburg.de",
+          "endpoints_in_bucket": 486,
+          "endpoints_in_pack": 1301,
+          "country_codes": [
+            "DE"
+          ],
+          "formats": [
+            "xml",
+            "zip"
+          ],
+          "formats_in_pack": 4,
+          "sample_url": "https://archiv.transparenz.hamburg.de/hmbtgarchive/HMDK/hh_wfs_ied_anlagen_213128_snap_3.XML",
+          "sample_title": "Anlagen nach der Industrieemissions-Richtlinie in Hamburg (IED-Anlagen Hamburg) - Dienst \"WFS IED-Anlagen Hamburg\" (GetCapabilities)",
+          "sample_format": "xml",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "data.gov.uk",
+          "display": "data.gov.uk",
+          "host": "assets.publishing.service.gov.uk",
+          "endpoints_in_bucket": 268,
+          "endpoints_in_pack": 268,
+          "country_codes": [
+            "GB"
+          ],
+          "formats": [
+            "csv"
+          ],
+          "formats_in_pack": 1,
+          "sample_url": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1005737/2b.__FC_-_Over_25K_-_May_21_.csv",
+          "sample_title": "assets.publishing.service.gov.uk: Spend over £25,000 in the Forestry Commission / 2021 May Return - Forestry Commission",
+          "sample_format": "csv",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "ArcGIS Online: Vegetation",
+          "display": "ArcGIS Online: Vegetation",
+          "host": "data-cdfw.opendata.arcgis.com",
+          "endpoints_in_bucket": 264,
+          "endpoints_in_pack": 2491,
+          "country_codes": [
+            "US"
+          ],
+          "formats": [
+            "xml",
+            "csv"
+          ],
+          "formats_in_pack": 4,
+          "sample_url": "https://data-cdfw.opendata.arcgis.com/api/download/v1/items/0008fe7bbcdf48e0bca09cae5eb3870f/csv?layers=0",
+          "sample_title": "Aspen Delineation - Plumas National Forest [ds374] - CSV",
+          "sample_format": "csv",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Canada",
+          "display": "Canada",
+          "host": "open.canada.ca",
+          "endpoints_in_bucket": 253,
+          "endpoints_in_pack": 814,
+          "country_codes": [
+            "CA"
+          ],
+          "formats": [
+            "csv",
+            "txt"
+          ],
+          "formats_in_pack": 4,
+          "sample_url": "https://open.canada.ca/data/dataset/072803b9-0374-44b0-b602-36fb19c52e1c/resource/28341dca-d053-4aef-b624-aa3253fd3879/download/elk_island_np_forest_vegetation_community_1984-2015_data_dictionary.csv",
+          "sample_title": "Forest vegetation community areal extent and distribution - Elk Island - Forest vegetation community areal extent and distribution - Elk Island - Data dictionary",
+          "sample_format": "csv",
+          "sample_last_tested": "2026-11-15"
+        }
+      ]
+    },
+    {
+      "id": "evals",
+      "name": "Evals and testing",
+      "title": "Species searches, readings, map layers and files to test an environment tool",
+      "filter": "the whole pack",
+      "endpoints": 174406,
+      "notes": [],
+      "criteria": "Services in this pack that returned the most different formats, then the most endpoints that passed a data call, then by name: a mix of response shapes to test parsers and tool calls. Only services with at least one bucket row that matches the focus rule are listed, and the sample comes from those rows; the counts cover the whole bucket. The sample URL is the first row by URL sort after preferring, in this order: rows that match the bucket's sample preference when it has one, rows that return values rather than describe a dataset or a service (not ERDDAP /info/ pages, OGC GetCapabilities requests, bare OWS addresses, PxWeb tables, UN SDG series lists, Statistics Canada download pointers, WorldPop listings, GTFS validation reports, untitled rows or service root addresses), and agent-ready rows. Services named \"ArcGIS organization\" hold map layers from many owners and are added only when fewer than 5 other services match.",
+      "services": [
+        {
+          "service": "Slovensko",
+          "display": "Slovensko",
+          "host": "data.slovensko.sk",
+          "endpoints_in_bucket": 437,
+          "endpoints_in_pack": 437,
+          "country_codes": [
+            "SK"
+          ],
+          "formats": [
+            "csv",
+            "zip",
+            "xml",
+            "json",
+            "geojson",
+            "txt"
+          ],
+          "formats_in_pack": 6,
+          "sample_url": "https://data.slovensko.sk/download?id=4d04c2de-93fd-46eb-b10d-9b21e558c97f",
+          "sample_title": "Fee for municipal waste",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-14"
+        },
+        {
+          "service": "Public",
+          "display": "Public",
+          "host": "download.data.public.lu",
+          "endpoints_in_bucket": 534,
+          "endpoints_in_pack": 534,
+          "country_codes": [
+            "LU"
+          ],
+          "formats": [
+            "json",
+            "xml",
+            "geojson",
+            "csv",
+            "zip"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://download.data.public.lu/resources/air-quality-geostatistical-interpolation/20261113-220157/lux-data-no2-1hour.json",
+          "sample_title": "Administration de l'environnement: Air Quality - Geostatistical interpolation / lux-data-no2-1hour.json",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Canadian Urban Data Catalogue (CUDC)",
+          "display": "Canadian Urban Data Catalogue (CUDC)",
+          "host": "www.donneesquebec.ca",
+          "endpoints_in_bucket": 533,
+          "endpoints_in_pack": 533,
+          "country_codes": [
+            "CA"
+          ],
+          "formats": [
+            "csv",
+            "json",
+            "xml",
+            "geojson",
+            "txt"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://www.donneesquebec.ca/recherche/dataset/06950d7f-94d9-4033-90b2-f0a3f57eabbf/resource/55b380aa-5df9-48ec-9e61-ed5ff5ac667b/download/cdu-bois-et-corridors-forestiers-interet.geojson",
+          "sample_title": "CDU woods and forest corridors of interest - cdu-wood-and-forest-corridors-interet.geojson",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Open Development Mekong Datahub",
+          "display": "Open Development Mekong Datahub",
+          "host": "data.opendevelopmentmekong.net",
+          "endpoints_in_bucket": 280,
+          "endpoints_in_pack": 280,
+          "country_codes": [
+            "KH",
+            "LA",
+            "MM"
+          ],
+          "formats": [
+            "json",
+            "xml",
+            "csv",
+            "geojson",
+            "txt"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://data.opendevelopmentmekong.net/api/3/action/datastore_search?resource_id=0441336b-63ee-425c-90e3-5cc62ded46af&limit=1",
+          "sample_title": "Agro-Ecological Regions of Myanmar - MM_AgroEcoRegions in Datastore via GeoServer",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Canadian Urban Data Catalogue (CUDC)",
+          "display": "Canadian Urban Data Catalogue (CUDC)",
+          "host": "geohub.saskatchewan.ca",
+          "endpoints_in_bucket": 194,
+          "endpoints_in_pack": 194,
+          "country_codes": [
+            "CA"
+          ],
+          "formats": [
+            "json",
+            "csv",
+            "xml",
+            "zip",
+            "geojson"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://geohub.saskatchewan.ca/api/download/v1/items/1ffa27744fd04ee6986de4bee7ad4052/geojson?layers=0",
+          "sample_title": "Wildlife Habitat Protection Act - GeoJSON",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "Open Development Cambodia Datahub",
+          "display": "Open Development Cambodia Datahub",
+          "host": "data.opendevelopmentcambodia.net",
+          "endpoints_in_bucket": 171,
+          "endpoints_in_pack": 171,
+          "country_codes": [
+            "KH"
+          ],
+          "formats": [
+            "json",
+            "xml",
+            "geojson",
+            "zip",
+            "csv"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://data.opendevelopmentcambodia.net/api/3/action/datastore_search?resource_id=0441336b-63ee-425c-90e3-5cc62ded46af&limit=1",
+          "sample_title": "Agro-Ecological Regions of Myanmar - MM_AgroEcoRegions in Datastore via GeoServer",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "ArcGIS Online: ACT Canopy Cover 2020 1m WESTON",
+          "display": "ArcGIS Online: ACT Canopy Cover 2020 1m WESTON",
+          "host": "actmapi-actgov.opendata.arcgis.com",
+          "endpoints_in_bucket": 150,
+          "endpoints_in_pack": 150,
+          "country_codes": [
+            "AU"
+          ],
+          "formats": [
+            "csv",
+            "zip",
+            "json",
+            "geojson",
+            "xml"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://actmapi-actgov.opendata.arcgis.com/api/download/v1/items/267b771369fb43c682b1261f742cc95c/csv?layers=0",
+          "sample_title": "ACTGOV Mature Tree 2020 Crowns - CSV",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-15"
+        },
+        {
+          "service": "ArcGIS Online: Helsingin Seudun Liikenteen (HSL) kaupunkipyöräasemat",
+          "display": "ArcGIS Online: Helsingin Seudun Liikenteen (HSL) kaupunkipyöräasemat",
+          "host": "opendata.arcgis.com",
+          "endpoints_in_bucket": 143,
+          "endpoints_in_pack": 143,
+          "country_codes": [
+            "AU",
+            "CA",
+            "GB",
+            "IE",
+            "NL"
+          ],
+          "formats": [
+            "xml",
+            "csv",
+            "json",
+            "geojson",
+            "zip"
+          ],
+          "formats_in_pack": 5,
+          "sample_url": "https://opendata.arcgis.com/datasets/07c7d3a8031b401d80feb16512a659d5_13.geojson",
+          "sample_title": "Sheffield Local Wildlife Sites",
+          "sample_format": "json",
+          "sample_last_tested": "2026-11-14"
+        }
+      ]
+    }
+  ]
+}

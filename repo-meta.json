@@ -1,0 +1,38 @@
+{
+  "name": "170k-environment-apis-for-agents",
+  "old_name": "environment-api-endpoints",
+  "new_name": "170k-environment-apis-for-agents",
+  "url": "https://github.com/agentpopulation/170k-environment-apis-for-agents",
+  "description": "174,406 environment API endpoints that passed a keyless data call. For agent tools, apps, pipelines and evals. CSV, CC BY 4.0.",
+  "homepage": "https://agentpopulation.com/apis",
+  "topics": [
+    "api-endpoints",
+    "open-data",
+    "dataset",
+    "ai-agents",
+    "agent-tools",
+    "agentpopulation",
+    "environmental-data",
+    "environment",
+    "biodiversity",
+    "pollution",
+    "air-quality",
+    "emissions",
+    "radioactivity",
+    "waste",
+    "soil",
+    "forests",
+    "protected-areas",
+    "geospatial"
+  ],
+  "release": {
+    "tag": "snapshot-2026-11-15",
+    "title": "Environment API endpoints · snapshot 15 Nov 2026 · 174,406 endpoints",
+    "notesFile": "RELEASE_NOTES.md",
+    "manifest": "../_release/environment-api-endpoints/release.json",
+    "assets": [
+      "../_release/environment-api-endpoints/Environment_API_Endpoints_AgentPopulation_Snapshot_2026-11-15.csv.gz",
+      "../_release/environment-api-endpoints/SHA256SUMS.txt"
+    ]
+  }
+}
